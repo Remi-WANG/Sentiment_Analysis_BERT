@@ -1,6 +1,5 @@
 import time, sys
 import numpy as np
-import os
 
 from classifier import Classifier
 
@@ -65,9 +64,9 @@ if __name__ == "__main__":
     n_runs = 5
     if len(sys.argv) > 1:
         n_runs = int(sys.argv[1])
-    module_path = os.getcwd() + '/data/'
-    trainfile =  module_path + "traindata.csv"
-    devfile =  module_path + "devdata.csv"
+    datadir = "../data/"
+    trainfile =  datadir + "traindata.csv"
+    devfile =  datadir + "devdata.csv"
     testfile = None
     # testfile = datadir + "testdata.csv"
 
@@ -88,3 +87,4 @@ if __name__ == "__main__":
     print("Mean Dev Acc.: %.2f (%.2f)" % (np.mean(devaccs), np.std(devaccs)))
     print("Mean Test Acc.: %.2f (%.2f)" % (np.mean(testaccs), np.std(testaccs)))
     print("\nExec time: %.2f s. ( %d per run )" % (total_exec_time, total_exec_time / n_runs))
+
